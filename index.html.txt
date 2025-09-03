@@ -1,0 +1,379 @@
+Prêt à utiliser 
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Portfolio</title>
+    <!--
+        Le code CSS est inclus directement dans la balise <style>
+        pour tout garder dans un seul fichier.
+    -->
+    <style>
+        /* --- Styles généraux --- */
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f6;
+            color: #333;
+        }
+        main {
+            max-width: 960px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+        h1, h2, h3 {
+            font-weight: 700;
+            color: #1e3a8a;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        section {
+            background-color: #ffffff;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+        /* --- Styles pour la navigation (Header) --- */
+        header {
+            background-color: #1e3a8a;
+            color: #fff;
+            padding: 1rem 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+        nav a:hover {
+            background-color: #2563eb;
+        }
+        /* --- Styles pour les sections individuelles --- */
+        #about p, #accueil p {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        
+        #accueil img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover; /* Cela garantit que l'image remplit le cercle sans être déformée */
+            border-radius: 50%;
+            display: block;
+            margin: 0 auto 1.5rem;
+        }
+        #skills ul {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            list-style: none;
+            padding: 0;
+        }
+        #skills li {
+            background-color: #f0f4f8;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 600;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        #skills li:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+        }
+        
+        #projects article {
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease;
+        }
+        #projects article:hover {
+            transform: translateY(-5px);
+        }
+        #projects h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        #projects img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+        #contact form {
+            display: flex;
+            flex-direction: column;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        #contact label {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        #contact input,
+        #contact textarea {
+            width: 100%;
+            padding: 0.75rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+        #contact button {
+            background-color: #2563eb;
+            color: #fff;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+        #contact button:hover {
+            background-color: #1e3a8a;
+        }
+        /* --- Styles pour le pied de page (Footer) --- */
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: #1e3a8a;
+            color: #aeb2b7;
+        }
+        
+        /* Styles pour les nouveaux boutons */
+        .ai-button {
+            background-color: #4a90e2;
+            color: #fff;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 1rem;
+        }
+        .ai-button:hover {
+            background-color: #357bd8;
+        }
+        .ai-loading {
+            font-style: italic;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#about">À propos</a></li>
+                <li><a href="#skills">Compétences</a></li>
+                <li><a href="#projects">Projets</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <!-- Section Accueil -->
+        <section id="accueil">
+            <h1>Bienvenue sur mon portfolio</h1>
+            <img src="https://i.postimg.cc/Z09Mx6S4/20240902-212214-0000.png" alt="Ma photo de profil">
+            <p>Bonjour, je suis <b>Daniel MÈHOUMONTO DOSSOU</b>, développeur web junior. Passionné par la création de sites web élégants et fonctionnels, j'ai récemment terminé une formation intensive en <b><i>HTML, CSS et JavaScript</i></b>. Ce portfolio est ma vitrine pour partager mon travail et mes progrès.</p>
+        </section>
+        <!-- Section À propos de moi -->
+        <section id="about">
+            <h2>À propos de moi</h2>
+            <p>Mon parcours dans le développement web a débuté par une curiosité pour la création d'interfaces et l'interactivité. J'ai suivi une formation organisée par <a href="https://dclic.francophonie.org/" target="_blank">D-CLIC</a>, où j'ai acquis les bases pour transformer des idées en réalité numérique. J'ai notamment appris les fondements du web, les protocoles essentiels, et l'importance de l'éco-conception.</p>
+            <p>En dehors de la programmation, je suis un grand amateur dans le domaine de l'informatique, je suis aussi enseignant primaire, ce qui m'aide à rester concentré et à développer mon esprit d'équipe. Ces passions complètent mon travail de développeur et me permettent de rester créatif et équilibré.</p>
+        </section>
+        <!-- Section Compétences -->
+        <section id="skills">
+            <h2>Mes compétences</h2>
+            <ul>
+                <li>HTML5 (balisage, liens, images, tableaux)</li>
+                <li>CSS3 (sélecteurs, mise en forme, mise en page)</li>
+                <li>JavaScript (variables, opérateurs, fonctions)</li>
+                <li>Manipulation du DOM</li>
+                <li>Formulaires HTML</li>
+                <li>Git & GitHub</li>
+            </ul>
+            <div style="text-align: center; margin-top: 2rem;">
+                <button class="ai-button" onclick="generateInterviewQuestion()">Générer une question d'entretien ✨</button>
+                <p id="interview-question-output" style="margin-top: 1rem; font-style: italic;"></p>
+            </div>
+        </section>
+        <!-- Section Projets -->
+        <section id="projects">
+            <h2>Mes Projets</h2>
+            <article>
+                <h3>Projet 1: Page d'accueil statique</h3>
+                <p id="project-1-desc">
+                    Ce projet a été l'occasion de maîtriser les bases de HTML et CSS. J'ai créé une page d'accueil pour un service fictif en utilisant les bonnes pratiques de balisage. Ce projet met en évidence ma capacité à structurer le contenu et à le mettre en forme de manière professionnelle.
+                </p>
+                <img src="https://placehold.co/600x400/808080/FFFFFF?text=Image+du+Projet+1" alt="Image du projet de page statique">
+                <button class="ai-button" onclick="generateProjectDescription('Projet 1: Page d\'accueil statique', 'project-1-desc')">Générer une description ✨</button>
+            </article>
+            <article>
+                <h3>Projet 2: Un jeu simple en JavaScript</h3>
+                <p id="project-2-desc">
+                    Pour ce projet, je vais utiliser JavaScript pour créer un mini-jeu. Je vais appliquer tous les es concepts appris  pour gérer la logique du jeu. Cela démontre ma capacité à ajouter de l'interactivité et à résoudre des problèmes de manière logique.
+                </p>
+                <img src="https://placehold.co/600x400/808080/FFFFFF?text=Image+du+Projet+2" alt="Image du projet de jeu">
+                <button class="ai-button" onclick="generateProjectDescription('Projet 2: Un jeu simple en JavaScript', 'project-2-desc')">Générer une description ✨</button>
+            </article>
+            <article>
+                <h3>Projet 3: Formulaire de contact interactif</h3>
+                <p id="project-3-desc">
+                    En me basant sur mes connaissances des formulaires et de la manipulation du DOM, je vais créer ce formulaire pour collecter des informations au sein de mon établissement. Le script JavaScript assure une validation de base pour une meilleure expérience utilisateur. Cela montre ma compréhension des objets standards comme `String` et des bases de la validation ainsi que et la manipulation de tableaux.
+                </p>
+                <img src="https://placehold.co/600x400/808080/FFFFFF?text=Image+du+Projet+3" alt="Image du projet de formulaire">
+                <button class="ai-button" onclick="generateProjectDescription('Projet 3: Formulaire de contact interactif', 'project-3-desc')">Générer une description ✨</button>
+            </article>
+        </section>
+        <!-- Section Contact -->
+        <section id="contact">
+            <h2>Contactez-moi</h2>
+            <form id="contactForm">
+                <label for="name">Nom :</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="email">Email :</label>
+                <input type="email" id="email" name="email" required>
+                <label for="message">Message :</label>
+                <textarea id="message" name="message" required></textarea>
+                <button type="submit">Envoyer</button>
+            </form>
+            <div id="formMessage" style="text-align: center; margin-top: 1rem;"></div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Daniel Dossou. Tous droits réservés.</p>
+    </footer>
+    <!--
+        Le code JavaScript est inclus directement ici pour la validation du formulaire.
+        Nous avons également ajouté des fonctions pour l'API Gemini.
+    -->
+    <script>
+        const form = document.getElementById('contactForm');
+        const formMessage = document.getElementById('formMessage');
+        form.addEventListener('submit', function(event) {
+            // Empêche la soumission du formulaire par défaut
+            event.preventDefault();
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+            if (name === '' || email === '' || message === '') {
+                formMessage.textContent = 'Veuillez remplir tous les champs.';
+                formMessage.style.color = 'red';
+            } else {
+                formMessage.textContent = 'Message envoyé avec succès !';
+                formMessage.style.color = 'green';
+                
+                // Vous pouvez ajouter ici la logique pour envoyer les données
+                console.log('Nom:', name);
+                console.log('Email:', email);
+                console.log('Message:', message);
+                // Réinitialise le formulaire
+                form.reset();
+            }
+        });
+        // Fonction pour appeler l'API Gemini afin de générer une description de projet
+        async function generateProjectDescription(projectTitle, outputElementId) {
+            const outputElement = document.getElementById(outputElementId);
+            const originalText = outputElement.textContent;
+            outputElement.textContent = 'Génération en cours...';
+            try {
+                const apiKey = ""; 
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+                const payload = {
+                    contents: [{ parts: [{ text: `Rédige une description professionnelle et concise d'un projet de développement web intitulé "${projectTitle}". Mets l'accent sur les compétences techniques utilisées et la valeur ajoutée du projet pour un portfolio de développeur junior.` }] }],
+                    tools: [{ "google_search": {} }],
+                    systemInstruction: {
+                        parts: [{ text: "Agis en tant que rédacteur technique expert pour un portfolio de développeur web. Utilise un ton professionnel et engageant. N'ajoute pas de titre." }]
+                    },
+                };
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                if (!response.ok) throw new Error('Erreur de l\'API Gemini');
+                const result = await response.json();
+                const generatedText = result?.candidates?.[0]?.content?.parts?.[0]?.text;
+                
+                if (generatedText) {
+                    outputElement.textContent = generatedText;
+                } else {
+                    outputElement.textContent = originalText;
+                    console.error('Erreur: Aucune réponse valide de l\'API Gemini.');
+                }
+            } catch (error) {
+                console.error('Erreur lors de la génération de la description:', error);
+                outputElement.textContent = "Désolé, une erreur est survenue lors de la génération. Veuillez réessayer.";
+            }
+        }
+        // Fonction pour appeler l'API Gemini afin de générer une question d'entretien
+        async function generateInterviewQuestion() {
+            const outputElement = document.getElementById('interview-question-output');
+            outputElement.textContent = 'Génération en cours...';
+            try {
+                const skills = Array.from(document.querySelectorAll('#skills li')).map(li => li.textContent).join(', ');
+                const apiKey = "";
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+                const payload = {
+                    contents: [{ parts: [{ text: `Génère une question d'entretien technique pour un développeur junior, basée sur les compétences suivantes : ${skills}. La question doit être concrète et demander l'application d'une ou plusieurs de ces compétences. Ne donne pas la réponse.` }] }],
+                    tools: [{ "google_search": {} }],
+                    systemInstruction: {
+                        parts: [{ text: "Agis en tant que recruteur technique expert. Pose une question d'entretien technique pertinente. La réponse doit être uniquement la question, sans introduction ni explication." }]
+                    },
+                };
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                if (!response.ok) throw new Error('Erreur de l\'API Gemini');
+                const result = await response.json();
+                const generatedText = result?.candidates?.[0]?.content?.parts?.[0]?.text;
+                
+                if (generatedText) {
+                    outputElement.textContent = generatedText;
+                } else {
+                    outputElement.textContent = "Désolé, une erreur est survenue lors de la génération. Veuillez réessayer.";
+                    console.error('Erreur: Aucune réponse valide de l\'API Gemini.');
+                }
+            } catch (error) {
+                console.error('Erreur lors de la génération de la question:', error);
+                outputElement.textContent = "Désolé, une erreur est survenue lors de la génération. Veuillez réessayer.";
+            }
+        }
+    </script>
+</body>
+</html>
