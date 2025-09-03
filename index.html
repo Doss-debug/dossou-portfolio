@@ -186,6 +186,42 @@
 ‎            background-color: #1e3a8a;
 ‎            color: #aeb2b7;
 ‎        }
+‎
+‎        /* --- Media Queries pour la responsivité --- */
+‎        /* S'applique aux écrans de 768px ou moins (pour tablettes et téléphones) */
+‎        @media (max-width: 768px) {
+‎            h1 {
+‎                font-size: 2rem;
+‎            }
+‎
+‎            h2 {
+‎                font-size: 1.75rem;
+‎            }
+‎
+‎            section {
+‎                padding: 1.5rem;
+‎            }
+‎            
+‎            nav ul {
+‎                gap: 1rem;
+‎            }
+‎
+‎            #skills ul {
+‎                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+‎            }
+‎        }
+‎
+‎        /* S'applique aux écrans de 480px ou moins (principalement les téléphones) */
+‎        @media (max-width: 480px) {
+‎            main {
+‎                margin: 1rem auto;
+‎                padding: 0 1rem;
+‎            }
+‎            
+‎            nav a {
+‎                padding: 0.5rem;
+‎            }
+‎        }
 ‎    </style>
 ‎</head>
 ‎<body>
